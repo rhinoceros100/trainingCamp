@@ -1,0 +1,23 @@
+syntax = "proto3";
+package hello;
+
+service HelloService {
+  rpc SendHello (SendHelloReq) returns (SendHelloRply) {}
+  rpc GetHello (GetHelloReq) returns (GetHelloRply) {}
+}
+
+message SendHelloReq {
+  uint64 uid = 1;
+  string msg = 2;
+}
+
+message SendHelloRply {
+}
+
+message GetHelloReq {
+  uint64 uid = 1;
+}
+
+message GetHelloRply {
+  string msg = 1;
+}
