@@ -1,0 +1,149 @@
+GET: -nan====== GET ======
+  10000 requests completed in 0.15 seconds
+  10 parallel clients
+  10 bytes payload
+  keep alive: 1
+
+99.91% <= 1 milliseconds
+100.00% <= 1 milliseconds
+66225.17 requests per second
+
+
+SET: 10000.00====== SET ======
+  10000 requests completed in 0.15 seconds
+  10 parallel clients
+  10 bytes payload
+  keep alive: 1
+
+99.91% <= 1 milliseconds
+100.00% <= 1 milliseconds
+68493.15 requests per second
+
+
+GET: -nan====== GET ======
+  10000 requests completed in 0.14 seconds
+  10 parallel clients
+  20 bytes payload
+  keep alive: 1
+
+99.71% <= 1 milliseconds
+99.91% <= 3 milliseconds
+100.00% <= 3 milliseconds
+72992.70 requests per second
+
+
+SET: 10000.00====== SET ======
+  10000 requests completed in 0.14 seconds
+  10 parallel clients
+  20 bytes payload
+  keep alive: 1
+
+100.00% <= 0 milliseconds
+68965.52 requests per second
+
+
+GET: 10000.00====== GET ======
+  10000 requests completed in 0.13 seconds
+  10 parallel clients
+  50 bytes payload
+  keep alive: 1
+
+100.00% <= 0 milliseconds
+76335.88 requests per second
+
+
+SET: 10000.00====== SET ======
+  10000 requests completed in 0.15 seconds
+  10 parallel clients
+  50 bytes payload
+  keep alive: 1
+
+100.00% <= 0 milliseconds
+67567.57 requests per second
+
+
+GET: 10000.00====== GET ======
+  10000 requests completed in 0.24 seconds
+  10 parallel clients
+  100 bytes payload
+  keep alive: 1
+
+99.91% <= 104 milliseconds
+99.95% <= 105 milliseconds
+100.00% <= 105 milliseconds
+42372.88 requests per second
+
+
+SET: 10000.00====== SET ======
+  10000 requests completed in 0.15 seconds
+  10 parallel clients
+  100 bytes payload
+  keep alive: 1
+
+99.81% <= 1 milliseconds
+100.00% <= 1 milliseconds
+68027.21 requests per second
+
+
+GET: 0.00====== GET ======
+  10000 requests completed in 0.13 seconds
+  10 parallel clients
+  200 bytes payload
+  keep alive: 1
+
+100.00% <= 0 milliseconds
+74626.87 requests per second
+
+
+SET: -nan====== SET ======
+  10000 requests completed in 0.16 seconds
+  10 parallel clients
+  200 bytes payload
+  keep alive: 1
+
+100.00% <= 0 milliseconds
+62893.08 requests per second
+
+
+GET: -nan====== GET ======
+  10000 requests completed in 0.14 seconds
+  10 parallel clients
+  1000 bytes payload
+  keep alive: 1
+
+100.00% <= 0 milliseconds
+73529.41 requests per second
+
+
+SET: 10000.00====== SET ======
+  10000 requests completed in 0.16 seconds
+  10 parallel clients
+  1000 bytes payload
+  keep alive: 1
+
+100.00% <= 0 milliseconds
+63694.27 requests per second
+
+
+GET: -nan====== GET ======
+  10000 requests completed in 0.14 seconds
+  10 parallel clients
+  5000 bytes payload
+  keep alive: 1
+
+99.71% <= 1 milliseconds
+99.81% <= 2 milliseconds
+100.00% <= 3 milliseconds
+69930.07 requests per second
+
+
+SET: -nan====== SET ======
+  10000 requests completed in 0.21 seconds
+  10 parallel clients
+  5000 bytes payload
+  keep alive: 1
+
+100.00% <= 0 milliseconds
+47393.37 requests per second
+
+
