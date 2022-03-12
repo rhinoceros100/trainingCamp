@@ -1,0 +1,21 @@
+syntax = "proto3";
+package equip;
+
+//protoc --go_out=plugins=grpc:./ equip.proto
+service EquipService {
+  rpc GetEquip (GetEquipReq) returns (GetEquipReply) {}
+}
+
+message GetEquipReq {
+  uint64 uid = 1;
+}
+
+message GetEquipReply {
+  int32 error_code = 1;
+  Equip equip_info = 2;
+}
+
+message Equip {
+  int32 box_num = 1;
+  int32 boot_num = 2;
+}
