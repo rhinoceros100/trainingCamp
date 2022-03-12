@@ -2,7 +2,7 @@ package main
 
 import (
 	"config"
-	"equip_service/biz"
+	"equip_service/service"
 	"fmt"
 	"github.com/rhinoceros100/trainingCamp/graduate_project/api/equip"
 	"google.golang.org/grpc"
@@ -39,7 +39,7 @@ func main() {
 
 	fmt.Println("grpc service")
 	svr := grpc.NewServer()
-	equip.RegisterEquipServiceServer(svr, &biz.Service{})
+	equip.RegisterEquipServiceServer(svr, &service.UserService{})
 	reflection.Register(svr)
 	if err := svr.Serve(lis); err != nil {
 		log.Fatal("failed to serve: %v", err)

@@ -1,7 +1,7 @@
 package main
 
 import (
-	"account_service/biz"
+	"account_service/service"
 	"config"
 	"fmt"
 	"github.com/rhinoceros100/trainingCamp/graduate_project/api/account"
@@ -39,7 +39,7 @@ func main() {
 
 	fmt.Println("grpc service")
 	svr := grpc.NewServer()
-	account.RegisterAccountServiceServer(svr, &biz.Service{})
+	account.RegisterAccountServiceServer(svr, &service.UserService{})
 	reflection.Register(svr)
 	if err := svr.Serve(lis); err != nil {
 		log.Fatal("failed to serve: %v", err)

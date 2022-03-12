@@ -1,42 +1,40 @@
-package biz
+package data
 
 import (
 	"context"
 	"errors"
 	"fmt"
 	"github.com/go-redis/redis"
-	"github.com/rhinoceros100/trainingCamp/graduate_project/api/account"
 	"time"
 )
 
-type Service struct{}
+type UserRepo struct{}
 
-func (svc *Service) GetAccount(ctx context.Context, in *account.GetAccountReq) (*account.GetAccountReply, error) {
-	reply := &account.GetAccountReply{
-		//ErrorCode: error_code.ERR_OK,
-		ErrorCode: 0,
-	}
+type UserInfo struct {
+	Name string
+	Age  int32
+}
+
+func (ur *UserRepo) GetUserInfo(ctx context.Context, uid uint64) (*UserInfo, error) {
 	var err error = nil
-	redisClient := svc.getRedisClient()
+	redisClient := ur.getRedisClient()
 	if nil == redisClient {
-		//reply.ErrorCode = error_code.ERR_SVR_INTERVAL
-		reply.ErrorCode = 1001
 		err = errors.New("Account svc redis")
-		return reply, err
+		return nil, err
 	}
 
-	uid := in.GetUid()
 	key := fmt.Sprintf("U%d", uid)
 	r := redisClient.Get(key)
 	name := r.String()
-	userInfo := &account.User{
+	age, _ := r.Int()
+	userInfo := &UserInfo{
 		Name: name,
+		Age:  int32(age),
 	}
-	reply.UserInfo = userInfo
-	return reply, nil
+	return userInfo, nil
 }
 
-func (svc *Service) getRedisClient() *redis.Client {
+func (ur *UserRepo) getRedisClient() *redis.Client {
 	redisOptions := &redis.Options{
 		Addr:               "127.0.0.1:6379",
 		DB:                 0,

@@ -1,42 +1,40 @@
-package biz
+package data
 
 import (
 	"context"
 	"errors"
 	"fmt"
 	"github.com/go-redis/redis"
-	"github.com/rhinoceros100/trainingCamp/graduate_project/api/equip"
 	"time"
 )
 
-type Service struct{}
+type UserRepo struct{}
 
-func (svc *Service) GetEquip(ctx context.Context, in *equip.GetEquipReq) (*equip.GetEquipReply, error) {
-	reply := &equip.GetEquipReply{
-		//ErrorCode: error_code.ERR_OK,
-		ErrorCode: 0,
-	}
-	var err error = nil
-	redisClient := svc.getRedisClient()
-	if nil == redisClient {
-		//reply.ErrorCode = error_code.ERR_SVR_INTERVAL
-		reply.ErrorCode = 1001
-		err = errors.New("Equip svc redis")
-		return reply, err
-	}
-
-	uid := in.GetUid()
-	key := fmt.Sprintf("EquipBox%d", uid)
-	r := redisClient.Get(key)
-	num, _ := r.Int()
-	equipInfo := &equip.Equip{
-		BoxNum: int32(num),
-	}
-	reply.EquipInfo = equipInfo
-	return reply, nil
+type UserInfo struct {
+	BoxNum  int32
+	BootNum int32
 }
 
-func (svc *Service) getRedisClient() *redis.Client {
+func (ur *UserRepo) GetUserInfo(ctx context.Context, uid uint64) (*UserInfo, error) {
+	var err error = nil
+	redisClient := ur.getRedisClient()
+	if nil == redisClient {
+		err = errors.New("Account svc redis")
+		return nil, err
+	}
+
+	key := fmt.Sprintf("EquipBox%d", uid)
+	r := redisClient.Get(key)
+	boxNum, _ := r.Int()
+	bootNum, _ := r.Int()
+	userInfo := &UserInfo{
+		BoxNum:  int32(boxNum),
+		BootNum: int32(bootNum),
+	}
+	return userInfo, nil
+}
+
+func (ur *UserRepo) getRedisClient() *redis.Client {
 	redisOptions := &redis.Options{
 		Addr:               "127.0.0.1:6379",
 		DB:                 0,

@@ -28,6 +28,7 @@ func (hq *HandleQuery) ServeHTTP(resp http.ResponseWriter, req *http.Request) {
 	hq.biz = userBiz
 	userInfo, err := hq.biz.GetUserInfo(ctx, uid)
 	if nil != err {
+		fmt.Printf("Query user info error:%+v \n", err)
 		ui := data.NewUserInfo(uid)
 		_, _ = resp.Write(hq.Marshal(ui))
 		return
