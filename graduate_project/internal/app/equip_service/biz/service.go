@@ -5,14 +5,14 @@ import (
 	"errors"
 	"fmt"
 	"github.com/go-redis/redis"
-	"github.com/rhinoceros100/trainingCamp/graduate_project/api/account"
+	"github.com/rhinoceros100/trainingCamp/graduate_project/api/equip"
 	"time"
 )
 
 type Service struct{}
 
-func (svc *Service) GetAccount(ctx context.Context, in *account.GetAccountReq) (*account.GetAccountReply, error) {
-	reply := &account.GetAccountReply{
+func (svc *Service) GetEquip(ctx context.Context, in *equip.GetEquipReq) (*equip.GetEquipReply, error) {
+	reply := &equip.GetEquipReply{
 		//ErrorCode: error_code.ERR_OK,
 		ErrorCode: 0,
 	}
@@ -21,18 +21,18 @@ func (svc *Service) GetAccount(ctx context.Context, in *account.GetAccountReq) (
 	if nil == redisClient {
 		//reply.ErrorCode = error_code.ERR_SVR_INTERVAL
 		reply.ErrorCode = 1001
-		err = errors.New("Account svc redis")
+		err = errors.New("Equip svc redis")
 		return reply, err
 	}
 
 	uid := in.GetUid()
-	key := fmt.Sprintf("U%d", uid)
+	key := fmt.Sprintf("EquipBox%d", uid)
 	r := redisClient.Get(key)
-	name := r.String()
-	userInfo := &account.User{
-		Name: name,
+	num, _ := r.Int()
+	equipInfo := &equip.Equip{
+		BoxNum: int32(num),
 	}
-	reply.UserInfo = userInfo
+	reply.EquipInfo = equipInfo
 	return reply, nil
 }
 
