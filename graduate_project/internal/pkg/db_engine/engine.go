@@ -1,11 +1,11 @@
 package db_engine
 
 import (
-	"comm/config"
-	"comm/log"
+	"config"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/go-xorm/core"
 	"github.com/go-xorm/xorm"
+	"log"
 	"os"
 	"time"
 )

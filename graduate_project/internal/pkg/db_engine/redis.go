@@ -1,10 +1,10 @@
 package db_engine
 
 import (
-	"comm/config"
-	"comm/log"
+	"config"
 	"errors"
 	"github.com/go-redis/redis"
+	"log"
 	"time"
 )
 
@@ -42,7 +42,7 @@ func InitRedis() error {
 }
 
 func (this *Redis) init() error {
-	log.Debug("redis init")
+	//log.Debug("redis init")
 	redisOptions := &redis.Options{
 		Addr:               this.redisAddress,
 		DB:                 this.db,
