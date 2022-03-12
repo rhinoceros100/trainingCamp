@@ -4,7 +4,7 @@ module comm
 
 go 1.12
 
-require protobuf v0.0.0-00010101000000-000000000000
+//require protobuf v0.0.0-00010101000000-000000000000
 
 require (
 	cloud.google.com/go v0.26.0 // indirect

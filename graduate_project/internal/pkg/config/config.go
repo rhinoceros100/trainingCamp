@@ -1,7 +1,7 @@
 package config
 
 import (
-	"github.com/astaxie/beego/tree/develop/adapter/config"
+	"github.com/astaxie/beego/config"
 )
 
 var Config config.Configer

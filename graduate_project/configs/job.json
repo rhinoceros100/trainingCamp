@@ -1,0 +1,4 @@
+{
+  "log_file" : "../log/job_svr.log",
+  "port" : 33445
+}

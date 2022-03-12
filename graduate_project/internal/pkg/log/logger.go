@@ -2,7 +2,7 @@ package log
 
 import (
 	"fmt"
-	logs "github.com/astaxie/beego/tree/develop/adapter/logs"
+	logs "github.com/astaxie/beego/logs"
 	"strings"
 )
 

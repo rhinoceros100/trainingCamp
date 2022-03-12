@@ -1,0 +1,8 @@
+{
+  "log_file" : "../log/bff_svr.log",
+  "svr_addr": {
+    "account_svr_addr" : "127.0.0.1:12345",
+    "equip_svr_addr" : "127.0.0.1:23456"
+  },
+  "port" : 22222
+}

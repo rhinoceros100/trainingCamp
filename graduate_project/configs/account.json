@@ -1,0 +1,4 @@
+{
+  "log_file" : "../log/account_svr.log",
+  "port" : 12345
+}

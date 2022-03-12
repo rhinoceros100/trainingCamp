@@ -1,0 +1,4 @@
+{
+  "log_file" : "../log/equip_svr.log",
+  "port" : 23456
+}
